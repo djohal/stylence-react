@@ -1,0 +1,42 @@
+.homepage {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 5rem;
+}
+
+.directory-menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.menu-item {
+  display: flex;
+  flex: auto;
+  min-width: 30%;
+  height: 15rem;
+  border: 1px solid black;
+  margin: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 0 1rem 0.5rem 1rem;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+  }
+
+  .subtitle {
+    font-weight: lighter;
+    font-size: 1rem;
+  }
+}
