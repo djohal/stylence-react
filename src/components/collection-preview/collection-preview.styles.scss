@@ -1,0 +1,12 @@
+.collection-preview {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+      font-weight: lighter;
+  }
+
+  .preview {
+    display: flex;
+  }
+}

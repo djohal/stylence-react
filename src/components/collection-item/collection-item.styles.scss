@@ -1,0 +1,36 @@
+.collection-item {
+  width: 25%;
+  display: flex;
+  height: 20rem;
+  margin: 0 0.5rem;
+  flex-direction: column;
+
+  .image {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-to-cart {
+    margin-top: 13rem;
+    background: rgba($color: white, $alpha: 0.7);
+    width: 80%;
+    text-align: center;
+    padding: 1rem 0;
+
+    &:hover {
+      cursor: pointer;
+      background: rgba($color: black, $alpha: 0.9);
+      color: white;
+    }
+  }
+
+  .collection-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
