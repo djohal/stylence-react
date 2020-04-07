@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  .logo {
+    width: 6.5rem;
+    height: 3rem;
+    padding: 0 1rem;
+  }
+
+  .options {
+    display: flex;
+    align-items: center;
+  }
+
+  .option {
+    padding: 0rem 0.5rem;
+  }
+}
