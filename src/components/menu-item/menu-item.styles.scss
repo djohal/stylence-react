@@ -1,15 +1,3 @@
-.homepage {
-  display: flex;
-  justify-content: center;
-  padding: 3rem 5rem;
-}
-
-.directory-menu {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
 .menu-item {
   display: flex;
   flex: auto;
@@ -19,6 +7,24 @@
   margin: 0.5rem;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+
+    & .background-image {
+      transform: scale(1.1);
+      transition: transform 4s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
+    & .content {
+      opacity: 0.9;
+    }
+  }
+
+  &.large {
+    height: 25rem;
+  }
 
   .content {
     display: flex;
@@ -26,6 +32,8 @@
     align-items: center;
     border: 1px solid black;
     padding: 0 1rem 0.5rem 1rem;
+    background: rgba($color: white, $alpha: 0.7);
+    position: absolute;
   }
 
   .title {
@@ -38,5 +46,12 @@
   .subtitle {
     font-weight: lighter;
     font-size: 1rem;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
   }
 }
