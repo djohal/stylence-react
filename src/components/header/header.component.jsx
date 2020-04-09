@@ -7,7 +7,8 @@ import logo from "../../assets/logo.png";
 import { auth } from "../../firebase/firebase.utils";
 
 import "./header.styles.scss";
-import CartIcon from "../cart/cart-icon.component";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = ({ currentUser }) => (
   <div className="header">
@@ -21,7 +22,6 @@ const Header = ({ currentUser }) => (
       <Link className="option" to="/contact">
         CONTACT
       </Link>
-
       {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>
           SIGN OUT
@@ -31,9 +31,9 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
-
       <CartIcon />
     </div>
+    <CartDropDown />
   </div>
 );
 
