@@ -1,0 +1,27 @@
+.cart-item {
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 1rem;
+
+    img {
+        width: 35%;
+    }
+
+    .item-details {
+        width: 70%;
+        display: flex;
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+    }
+
+    .name {
+        font-size: 0.75rem;
+    }
+
+    .price {
+        font-size: 0.75rem;
+    }
+}
