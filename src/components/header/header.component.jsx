@@ -31,7 +31,7 @@ const Header = ({ currentUser, toggleCartHidden }) => (
           SIGN IN
         </Link>
       )}
-      <CartIcon />
+      <CartIcon/>
     </div>
     {toggleCartHidden ? null : <CartDropDown />}
   </div>
