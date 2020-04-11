@@ -8,6 +8,8 @@ import CartItem from "../cart-item/cart-item.component";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
+import emptyCart from "../../assets/cart-empty.jpg";
+
 import "./cart-dropdown.styles.scss";
 
 const CartDropDown = ({ cartItems, history, dispatch }) => (
@@ -18,7 +20,9 @@ const CartDropDown = ({ cartItems, history, dispatch }) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <span className="empty-cart">Your cart is empty </span>
+        <div className="empty-cart">
+          <img src={emptyCart} alt="empty cart"/>
+        </div>
       )}
     </div>
 

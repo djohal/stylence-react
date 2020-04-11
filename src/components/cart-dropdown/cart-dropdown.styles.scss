@@ -33,10 +33,10 @@
     }
 
     .empty-cart {
-      display: block;
-      font-size: 1rem;
-      font-weight: lighter;
       margin-top: 3rem;
+      img {
+        width: 100%;
+      }
     }
   }
 }
