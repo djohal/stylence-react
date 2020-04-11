@@ -26,4 +26,17 @@
       font-weight: lighter;
     }
   }
+
+  .stripe-pay {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+  }
+
+  .test-warning {
+    color: red;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
 }
