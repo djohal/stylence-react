@@ -18,18 +18,21 @@ const CartDropDown = ({ cartItems, history, dispatch }) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))
       ) : (
-        <span className="empty-cart">Your cart is empty</span>
+        <span className="empty-cart">Your cart is empty </span>
       )}
     </div>
-    <CustomButton
-      inverted
-      onClick={() => {
-        history.push("/checkout");
-        dispatch(toggleCartHidden());
-      }}
-    >
-      GO TO CHECKOUT
-    </CustomButton>
+
+    {cartItems.length ? (
+      <CustomButton
+        inverted
+        onClick={() => {
+          history.push("/checkout");
+          dispatch(toggleCartHidden());
+        }}
+      >
+        GO TO CHECKOUT
+      </CustomButton>
+    ) : null}
   </div>
 );
 
