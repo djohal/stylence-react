@@ -18,7 +18,16 @@
   }
 
   .quantity {
-      padding-left: 1.5rem;
+    display: flex;
+    padding-left: 0.8rem;
+
+    .arrow {
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 0.7rem;
+    }
   }
 
   .remove {
