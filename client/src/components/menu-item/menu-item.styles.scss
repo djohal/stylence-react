@@ -55,3 +55,14 @@
     background-size: cover;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .menu-item {
+    height: 10rem;
+    width: 100%;
+
+    &.large {
+      height: 10rem;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import logo from "../../assets/logo.png";
+import logoMobile from "../../assets/favicon.png";
 
 import "./header.styles.scss";
 
@@ -19,6 +20,7 @@ const Header = ({ currentUser, toggleCartHidden, signOutStart }) => (
   <div className="header">
     <Link to="/">
       <img className="logo" src={logo} alt="logo" />
+      <img className="logo-mobile" src={logoMobile} alt="logo" />
     </Link>
     <div className="options">
       <Link className="option" to="/shop">

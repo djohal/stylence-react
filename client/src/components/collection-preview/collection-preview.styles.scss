@@ -3,12 +3,30 @@
   flex-direction: column;
 
   .title {
-      font-weight: lighter;
-      cursor: pointer;
+    font-weight: lighter;
+    cursor: pointer;
   }
 
   .preview {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection-preview {
+    padding: 0 2rem;
+    height: 100%;
+
+    .title {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
   }
 }

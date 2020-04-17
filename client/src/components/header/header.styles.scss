@@ -8,6 +8,10 @@
     padding: 0 1rem;
   }
 
+  .logo-mobile {
+    display: none;
+  }
+
   .options {
     display: flex;
     align-items: center;
@@ -16,5 +20,26 @@
   .option {
     margin: 0rem 1rem;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    .logo {
+      display: none;
+    }
+
+    .logo-mobile {
+      display: block;
+      height: 1.5rem;
+    }
+
+    .option {
+      margin: 0rem 0.6rem;
+      font-size: 0.8rem;
+    }
   }
 }
