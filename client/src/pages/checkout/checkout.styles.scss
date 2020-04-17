@@ -40,3 +40,36 @@
     font-size: 1rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .checkout-page {
+    width: 100%;
+    padding: 1rem;
+
+    .checkout-header {
+      padding: 0;
+      padding-bottom: 1rem;
+
+      .header-block {
+        width: 21%;
+        span {
+          font-size: 0.75rem;
+        }
+        &:last-child {
+          width: 12%;
+        }
+      }
+    }
+
+    .total {
+      span {
+        font-size: 1.5rem;
+        font-weight: lighter;
+      }
+    }
+
+    .test-warning {
+      font-size: 0.8rem;
+    }
+  }
+}

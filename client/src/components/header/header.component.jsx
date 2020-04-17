@@ -26,9 +26,6 @@ const Header = ({ currentUser, toggleCartHidden, signOutStart }) => (
       <Link className="option" to="/shop">
         SHOP
       </Link>
-      <Link className="option" to="/contact">
-        CONTACT
-      </Link>
       {currentUser ? (
         <div className="option" onClick={() => signOutStart()}>
           SIGN OUT

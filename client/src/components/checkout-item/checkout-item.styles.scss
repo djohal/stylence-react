@@ -36,3 +36,16 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .checkout-item {
+    .checkout-image,
+    .description,
+    .quantity,
+    .price {
+      width: 21%;
+      padding: 1rem 1rem 1rem 0;
+      font-size: 0.75rem;
+    }
+  }
+}
