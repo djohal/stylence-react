@@ -39,6 +39,19 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+export const getUserCartRef = async (userId) => {
+  const cartRef = firestore.collection("carts").where("userId", "==", userId);
+  const snapshot = await cartRef.get();
+
+  if (snapshot.empty) {
+    const cartDocRef = firestore.collection("carts").doc();
+    await cartDocRef.set({ userId, cartItems: [] });
+    return cartDocRef;
+  } else {
+    return snapshot.docs[0].ref;
+  }
+};
+
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
@@ -88,7 +101,4 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({ prompt: "select_account" });
-// export const signInWithGoogle = () => auth.signInWithPopup(provider);
-
 export default firebase;
