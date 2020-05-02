@@ -7,7 +7,7 @@ import { selectCollection } from "../../redux/shop/shop.selectors";
 
 import "./collection.styles.scss";
 
-const CollectionPage = ({ collection }) => (
+export const CollectionPage = ({ collection }) => (
   <div className="collection-page">
     <div className="title">
       <h2>{collection.title.toUpperCase()}</h2>
