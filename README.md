@@ -3,6 +3,11 @@ Demo - https://stylence-react.herokuapp.com/
 
 This e-commerce site was built as part of an online [udemy course](https://www.udemy.com/course/complete-react-developer-zero-to-mastery). 
 
+## To get started:
+- Fork this repo and clone it locally
+- Install all dependencies `npm i`
+- Run application `npm run dev`
+
 ### Stack used:
 - React: UI framework
 - Redux: State management
