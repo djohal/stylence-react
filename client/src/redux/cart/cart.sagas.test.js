@@ -42,12 +42,4 @@ describe("updateCartInFirebase", () => {
     gen.next();
     expect(gen.next().value).toEqual(undefined);
   });
-
-  // it("should return -1 when currentUser id is not available", async () => {
-  //   const gen = updateCartInFirebase();
-  //   userSelectors.selectCurrentUser.mockImplementation(() => true);
-  //   gen.next();
-  //   expect(gen.throw("error").value).toEqual(-1);
-  //   // expect(gen.next().value).toEqual(undefined);
-  // });
 });
