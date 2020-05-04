@@ -46,7 +46,8 @@ export function* onGoogleSignInStart() {
 export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
-    yield getSnapShotFromUserAuth(user);
+
+    yield call(getSnapShotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailure(error));
   }
@@ -58,9 +59,9 @@ export function* onEmailSignInStart() {
 
 export function* isUserAuthenticated() {
   try {
-    const userAuth = yield getCurrentUser();
+    const userAuth = yield call(getCurrentUser);
     if (!userAuth) return;
-    yield getSnapShotFromUserAuth(userAuth);
+    yield call(getSnapShotFromUserAuth, userAuth);
   } catch (error) {
     yield put(signInFailure(error));
   }

@@ -14,6 +14,8 @@ import ShopActionTypes from "./shop.types";
 
 import { fetchCollectionsAsync, fetchCollectionsStart } from "./shop.sagas";
 
+import { testSaga } from "redux-saga-test-plan";
+
 describe("fetch collections start saga", () => {
   it("should trigger on FETCH_COLLECTIONS_START", () => {
     const generator = fetchCollectionsStart();
@@ -24,36 +26,36 @@ describe("fetch collections start saga", () => {
 });
 
 describe("fetch collections async saga", () => {
-  const generator = fetchCollectionsAsync();
+  const saga = testSaga(fetchCollectionsAsync);
 
   it("should call firestore collection ", () => {
-    const getCollection = jest.spyOn(firestore, "collection");
-    generator.next();
-    expect(getCollection).toHaveBeenCalled();
-  });
-
-  it("should call convertCollectionsSnapshot saga ", () => {
-    const mockSnapshot = {};
-    expect(generator.next(mockSnapshot).value).toEqual(
-      call(convertCollectionsSnapshotToMap, mockSnapshot)
-    );
-  });
-
-  it("should fire fetchCollectionsSuccess if collectionsMap is succesful", () => {
-    const mockCollectionsMap = {
-      hats: { id: 1 },
+    let collectionRef = {
+      get: () => {},
     };
-
-    expect(generator.next(mockCollectionsMap).value).toEqual(
-      put(fetchCollectionsSuccess(mockCollectionsMap))
-    );
+    let snapshot = {};
+    let collectionsMap = {};
+    jest.spyOn(firestore, "collection").mockImplementation(() => collectionRef);
+    saga
+      .next()
+      .next(snapshot)
+      .call(convertCollectionsSnapshotToMap, snapshot)
+      .next(collectionsMap)
+      .put(fetchCollectionsSuccess(collectionsMap))
+      .next()
+      .isDone();
   });
 
-  it("should fire fetchCollectionsFailure if get collection fails at any point", () => {
-    const newGenerator = fetchCollectionsAsync();
-    newGenerator.next();
-    expect(newGenerator.throw({ message: "error" }).value).toEqual(
-      put(fetchCollectionsFailure("error"))
-    );
+  it("should catch error on failure", () => {
+    let error = {
+      message: new Error("error"),
+    };
+    const saga = testSaga(fetchCollectionsAsync);
+
+    saga
+      .next()
+      .throw(error)
+      .put(fetchCollectionsFailure(error.message))
+      .next()
+      .isDone();
   });
 });
