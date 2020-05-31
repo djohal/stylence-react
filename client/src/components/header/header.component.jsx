@@ -1,22 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { createStructuredSelector } from "reselect";
+import { createStructuredSelector } from 'reselect';
 
-import logo from "../../assets/logo.png";
-import logoMobile from "../../assets/favicon.png";
+import logo from '../../assets/logo.png';
+import logoMobile from '../../assets/favicon.png';
 
-import "./header.styles.scss";
+import './header.styles.scss';
 
-import CartIcon from "../cart-icon/cart-icon.component";
-import CartDropDown from "../cart-dropdown/cart-dropdown.component";
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 
-import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { selectCartHidden } from "../../redux/cart/cart.selectors";
-import { signOutStart } from "../../redux/user/user.actions";
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { signOutStart } from '../../redux/user/user.actions';
+import ToggleContainer from '../toggler/toggler';
 
-const Header = ({ currentUser, toggleCartHidden, signOutStart }) => (
+const Header = ({
+  currentUser,
+  toggleCartHidden,
+  signOutStart,
+  theme,
+  toggleTheme,
+}) => (
   <div className="header">
     <Link to="/">
       <img className="logo" src={logo} alt="logo" />
@@ -36,6 +43,7 @@ const Header = ({ currentUser, toggleCartHidden, signOutStart }) => (
         </Link>
       )}
       <CartIcon />
+      <ToggleContainer theme={theme} toggleTheme={toggleTheme} />
     </div>
     {toggleCartHidden ? null : <CartDropDown />}
   </div>
