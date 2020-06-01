@@ -3,7 +3,6 @@
   flex: auto;
   min-width: 30%;
   height: 15rem;
-  border: 1px solid black;
   margin: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -46,6 +45,7 @@
   .subtitle {
     font-weight: lighter;
     font-size: 1rem;
+    color: #4a4a4a;
   }
 
   .background-image {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { createStructuredSelector } from 'reselect';
 
@@ -30,17 +31,17 @@ const Header = ({
       <img className="logo-mobile" src={logoMobile} alt="logo" />
     </Link>
     <div className="options">
-      <Link className="option" to="/shop">
+      <HeaderLink className="option" to="/shop">
         SHOP
-      </Link>
+      </HeaderLink>
       {currentUser ? (
-        <div className="option" onClick={() => signOutStart()}>
+        <HeaderLink className="option" onClick={() => signOutStart()}>
           SIGN OUT
-        </div>
+        </HeaderLink>
       ) : (
-        <Link className="option" to="/sign-in">
+        <HeaderLink className="option" to="/sign-in">
           SIGN IN
-        </Link>
+        </HeaderLink>
       )}
       <CartIcon />
       <hr className="vertical-line option"></hr>
@@ -58,5 +59,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   signOutStart: () => dispatch(signOutStart()),
 });
+
+const HeaderLink = styled(Link)`
+  color: ${({ theme }) => theme.text};
+`;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,11 +1,12 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
-import "./menu-item.styles.scss";
+import './menu-item.styles.scss';
 
 const MenuItem = ({ title, imageUrl, size, linkUrl, match, history }) => (
-  <div
-    className={`${size ? size : ""} menu-item`}
+  <MenuItemDiv
+    className={`${size ? size : ''} menu-item`}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <div
@@ -18,7 +19,11 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, match, history }) => (
       <h1 className="title">{title.toUpperCase()}</h1>
       <span className="subtitle">SHOP NOW</span>
     </div>
-  </div>
+  </MenuItemDiv>
 );
+
+const MenuItemDiv = styled.div`
+  border: 1px solid ${({ theme }) => theme.border};
+`;
 
 export default withRouter(MenuItem);
