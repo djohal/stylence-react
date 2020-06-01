@@ -35,7 +35,7 @@ const Header = ({
         SHOP
       </HeaderLink>
       {currentUser ? (
-        <HeaderLink className="option" onClick={() => signOutStart()}>
+        <HeaderLink className="option" to="/" onClick={() => signOutStart()}>
           SIGN OUT
         </HeaderLink>
       ) : (
