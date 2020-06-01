@@ -6,7 +6,7 @@ import 'react-toggle/style.css';
 
 const ToggleBtn = styled(Toggle)`
   &.react-toggle--checked .react-toggle-track {
-    background-color: #4d4d4d;
+    background-color: #3c3b3b;
   }
 
   &.react-toggle--checked:hover:not(.react-toggle--disabled)
@@ -19,9 +19,9 @@ const ToggleBtn = styled(Toggle)`
 
     img {
       position: absolute;
-      width: 1.05rem;
-      top: 3px;
-      left: -3px;
+      width: 1.25rem;
+      top: 1px;
+      left: -4px;
     }
   }
 
@@ -30,9 +30,9 @@ const ToggleBtn = styled(Toggle)`
 
     img {
       position: absolute;
-      width: 1.05rem;
-      top: 4px;
-      left: -2px;
+      width: 1.25rem;
+      top: 2px;
+      left: -4px;
     }
   }
 
@@ -44,6 +44,7 @@ const ToggleBtn = styled(Toggle)`
 const ToggleContainer = ({ theme, toggleTheme }) => {
   return (
     <ToggleBtn
+      className="option"
       onClick={toggleTheme}
       icons={{
         checked: (

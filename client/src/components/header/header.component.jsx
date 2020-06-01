@@ -43,6 +43,7 @@ const Header = ({
         </Link>
       )}
       <CartIcon />
+      <hr className="vertical-line option"></hr>
       <ToggleContainer theme={theme} toggleTheme={toggleTheme} />
     </div>
     {toggleCartHidden ? null : <CartDropDown />}

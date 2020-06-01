@@ -16,3 +16,16 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .cart-icon {
+    .shopping-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .item-count {
+      margin-top: 3px;
+    }
+  }
+}
