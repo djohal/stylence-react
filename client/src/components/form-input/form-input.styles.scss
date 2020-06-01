@@ -4,7 +4,6 @@ $main-color: black;
 @mixin shrinkLabel {
   top: -0.9rem;
   font-size: 0.8rem;
-  color: $main-color;
 }
 
 .group {
@@ -17,8 +16,6 @@ $main-color: black;
     border: none;
     border-radius: 0;
     background: none;
-    background-color: white;
-    color: $sub-color;
     border-bottom: 1px solid $sub-color;
     padding: 0.5rem 0.5rem;
     margin: 1.5rem 0;
@@ -28,7 +25,7 @@ $main-color: black;
       outline: none;
     }
 
-    &:focus ~ .form-input-label {
+    &:focus~.form-input-label {
       @include shrinkLabel();
     }
   }

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-import { signUpStart } from "../../redux/user/user.actions";
+import { signUpStart } from '../../redux/user/user.actions';
 
-import FormInput from "../form-input/form-input.component";
-import Button from "../custom-button/custom-button.component";
+import FormInput from '../form-input/form-input.component';
+import Button from '../custom-button/custom-button.component';
 
-import "./sign-up.styles.scss";
+import './sign-up.styles.scss';
 
 const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
-    displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const { displayName, email, password, confirmPassword } = userCredentials;
