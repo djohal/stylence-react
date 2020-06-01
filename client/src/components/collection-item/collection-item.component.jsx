@@ -1,14 +1,24 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import { addItem } from "../../redux/cart/cart.actions";
+import { addItem, toggleCartHidden } from '../../redux/cart/cart.actions';
 
-import CustomButton from "../custom-button/custom-button.component";
+import CustomButton from '../custom-button/custom-button.component';
 
-import "./collection-item.styles.scss";
+import './collection-item.styles.scss';
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, cartItemsCount, toggleCart }) => {
   const { name, imageUrl, price } = item;
+
+  function addItemToCart() {
+    addItem(item);
+    if (cartItemsCount === 0) {
+      toggleCart();
+    }
+  }
+
   return (
     <div className="collection-item">
       <div
@@ -17,7 +27,7 @@ const CollectionItem = ({ item, addItem }) => {
           backgroundImage: `url(${imageUrl})`,
         }}
       >
-        <CustomButton inverted onClick={() => addItem(item)}>
+        <CustomButton inverted onClick={() => addItemToCart()}>
           ADD TO CART
         </CustomButton>
       </div>
@@ -29,8 +39,13 @@ const CollectionItem = ({ item, addItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+const mapStateToProps = createStructuredSelector({
+  cartItemsCount: selectCartItemsCount,
 });
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+  toggleCart: () => dispatch(toggleCartHidden()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);

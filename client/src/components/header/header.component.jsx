@@ -16,6 +16,7 @@ import CartDropDown from '../cart-dropdown/cart-dropdown.component';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { signOutStart } from '../../redux/user/user.actions';
+import { toggleCartHidden as toggleCart } from '../../redux/cart/cart.actions';
 import ToggleContainer from '../toggler/toggler';
 
 const Header = ({
@@ -24,6 +25,7 @@ const Header = ({
   signOutStart,
   theme,
   toggleTheme,
+  toggleCart,
 }) => (
   <div className="header">
     <Link to="/">
@@ -44,6 +46,10 @@ const Header = ({
         </HeaderLink>
       )}
       <CartIcon />
+      <div
+        className={`${toggleCartHidden ? null : 'overlay'}`}
+        onClick={() => toggleCart()}
+      />
       <hr className="vertical-line option"></hr>
       <ToggleContainer theme={theme} toggleTheme={toggleTheme} />
     </div>
@@ -58,6 +64,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   signOutStart: () => dispatch(signOutStart()),
+  toggleCart: () => dispatch(toggleCart()),
 });
 
 const HeaderLink = styled(Link)`

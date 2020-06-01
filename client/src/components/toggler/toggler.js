@@ -44,6 +44,7 @@ const ToggleBtn = styled(Toggle)`
 const ToggleContainer = ({ theme, toggleTheme }) => {
   return (
     <ToggleBtn
+      defaultChecked={theme === 'dark' ? true : false}
       className="option"
       onClick={toggleTheme}
       icons={{
